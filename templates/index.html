@@ -13,6 +13,7 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            overflow-x: hidden; /* Disable horizontal scrolling */
         }
 
         header {
@@ -42,6 +43,7 @@
             color: white;
             padding-top: 20px;
             position: fixed;
+            overflow-y: auto; /* Make sidebar scrollable if needed */
         }
 
         .sidebar a {
@@ -63,6 +65,8 @@
         .main-content {
             margin-left: 260px;
             padding: 20px;
+            padding-bottom: 50px; /* Space for footer */
+            min-height: 100vh;
         }
 
         .card {
@@ -146,28 +150,8 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h2>System Health Overview</h2>
-        <div class="row">
-            <div class="col card">
-                <h2>CPU Usage</h2>
-                <p>75%</p>
-            </div>
-            <div class="col card">
-                <h2>RAM Usage</h2>
-                <p>60%</p>
-            </div>
-            <div class="col card">
-                <h2>Disk Space</h2>
-                <p>45%</p>
-            </div>
-            <div class="col card">
-                <h2>Network Traffic</h2>
-                <p>85%</p>
-            </div>
-        </div>
-
+        <h2>Recent Activity Log</h2>
         <div class="card">
-            <h2>Recent Activity Log</h2>
             <ul>
                 <li>Server Started - 10:00 AM</li>
                 <li>New Website Created - 09:30 AM</li>
@@ -182,10 +166,12 @@
             <a href="#" class="btn">Start New Server</a>
         </div>
 
-        <footer>
-            <p>&copy; 2024 KubEdge | Terms & Conditions | Privacy Policy</p>
-        </footer>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 KubEdge | Terms & Conditions | Privacy Policy</p>
+    </footer>
 
 </body>
 
