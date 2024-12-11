@@ -3,128 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kubedge Web Hosting</title>
-    <!-- Add Bootstrap CSS from CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ3QJXf3g7y5deV0QBOUQk9p5g+RYdgCq1s0Sh/fdC6WxaQjc8hvY5bVh3Qg" crossorigin="anonymous">
-    
-    <!-- Google Fonts for sleek fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <title>Kubedge - Web App Hosting Tool</title>
+
+    <!-- Add a nice Google Font for the text -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Add custom CSS for the design -->
     <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
         body {
-            background-color: #f1f1f1;
             font-family: 'Roboto', sans-serif;
-        }
-        .container {
-            margin-top: 80px;
-            padding: 30px;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .header-text {
+            background-color: #f4f7f6;
             color: #333;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
+            line-height: 1.6;
+            padding: 20px;
         }
-        .btn-custom {
-            background-color: #1a73e8;
-            color: white;
-            border: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        .btn-custom:hover {
-            background-color: #0c5bb1;
-            transform: translateY(-3px);
-        }
-        .form-control {
+
+        /* Main container styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #ffffff;
             border-radius: 8px;
-            box-shadow: none;
-            transition: border-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .form-control:focus {
-            border-color: #1a73e8;
-            box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
-        }
-        .form-group label {
-            font-weight: 500;
-        }
-        .form-control, .btn {
+
+        /* Title styling */
+        h1 {
+            font-size: 36px;
+            color: #4CAF50;
             margin-bottom: 20px;
-        }
-        .message {
-            background-color: #28a745;
-            color: white;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-        .footer {
             text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: #999;
         }
-        .footer a {
-            color: #1a73e8;
+
+        /* Step headers */
+        h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* List styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Button styling */
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 18px;
             text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 20px;
         }
-        .footer a:hover {
-            text-decoration: underline;
+
+        .btn:hover {
+            background-color: #45a049;
         }
-        .btn-icon {
-            margin-right: 8px;
+
+        /* Information box styling */
+        .info-box {
+            background-color: #f1f1f1;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            margin-top: 20px;
         }
-        .hover-icon:hover {
-            color: #1a73e8;
+
+        /* Highlight box */
+        .highlight {
+            background-color: #ffffcc;
+            border-left: 5px solid #ffeb3b;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2 class="header-text">Welcome to Kubedge Web Hosting</h2>
-        
-        {% if message %}
-        <div class="message">
-            {{ message }}
-        </div>
-        {% endif %}
-        
-        <p class="text-center">Easily deploy your web applications and manage your hosting. Choose your deployment type and enter details below.</p>
-        
-        <form action="/submit" method="POST">
-            <div class="form-group">
-                <label for="appType">Select App Type:</label>
-                <select class="form-control" id="appType" name="appType" required>
-                    <option value="static">Static Website</option>
-                    <option value="dynamic">Dynamic Web Application</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="processName">Enter Process Name:</label>
-                <input type="text" class="form-control" id="processName" name="processName" placeholder="e.g., my-web-app" required>
-            </div>
-            
-            <button type="submit" class="btn btn-custom btn-block w-100">
-                <i class="fas fa-cloud-upload-alt btn-icon"></i> Deploy Now
-            </button>
-        </form>
 
-        <div class="footer">
-            <p>Need help? Visit <a href="https://kubedge.com/help" target="_blank">Kubedge Help Center</a></p>
-        </div>
+<div class="container">
+    <h1>Welcome to Kubedge Web App Hosting Tool</h1>
+
+    <p>Welcome to the Kubedge hosting tool! With this tool, you can easily host static websites and deploy them on Docker with minimal effort.</p>
+
+    <!-- Step 1: Check for Prerequisites -->
+    <div class="info-box">
+        <h2>Step 1: Check Prerequisites</h2>
+        <ul>
+            <li>Ensure Docker is installed on your machine.</li>
+            <li>Ensure Docker Compose is installed.</li>
+            <li>If not, install them using <code>apt install docker.io</code> and <code>apt install docker-compose</code> on Ubuntu.</li>
+        </ul>
     </div>
 
-    <!-- Add Bootstrap JS and dependencies from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybB2d5tK20XhHpY2STK3gZxhU1RbF1g8h6nxG3B5htEJ8g0Ke3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8Fqgz7pm5bb2gpa6nnF2i/ZtLNpdTo/9BGRd43ug/f1wQZ" crossorigin="anonymous"></script>
+    <!-- Step 2: Choose Static Website Option -->
+    <h2>Step 2: Choose Your Website Type</h2>
+    <p>Choose the type of static web app you want to host:</p>
+    <ul>
+        <li><strong>1. HTML Only</strong> - A simple HTML-based website.</li>
+        <li><strong>2. CSS Only</strong> - A website with CSS styles.</li>
+        <li><strong>3. HTML & CSS</strong> - A fully styled website with HTML and CSS.</li>
+    </ul>
+
+    <h2>Step 3: Set Up Your Web Application</h2>
+    <p>Provide the directory path for your static web application, including the <code>index.html</code> file. You will also be asked for the Docker image name, container port, and the host port.</p>
+
+    <h2>Step 4: Dockerize and Deploy</h2>
+    <p>After providing the necessary details, the tool will automatically:</p>
+    <ul>
+        <li>Create a <code>Dockerfile</code> and <code>docker-compose.yml</code> in the project directory.</li>
+        <li>Build and deploy your app using Docker Compose.</li>
+        <li>Run the app and expose it on the specified host port.</li>
+    </ul>
+
+    <div class="highlight">
+        <h2>Important:</h2>
+        <p>Ensure your <code>index.html</code> is in the root of your project directory. Otherwise, the deployment will fail.</p>
+    </div>
+
+    <h2>Step 5: Access Your Web App</h2>
+    <p>Once deployed, you can access your website by navigating to <code>http://localhost:<strong>8080</strong></code> (or the host port you specified).</p>
+
+    <a href="http://localhost:9876" class="btn">Get Started</a>
+</div>
+
 </body>
 </html>
