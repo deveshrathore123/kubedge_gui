@@ -100,6 +100,17 @@
             border-radius: 8px;
         }
 
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .col {
+            flex: 1;
+            margin: 10px;
+        }
+
         .card {
             background-color: #333;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -131,6 +142,26 @@
             color: #ccc;
         }
 
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #34495e;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .status .status-item {
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .status .status-item span {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
         .btn {
             padding: 12px 25px;
             background-color: #e74c3c;
@@ -158,17 +189,6 @@
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Utility classes */
-        .row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .col {
-            flex: 1;
-            margin: 10px;
-        }
     </style>
 </head>
 
@@ -205,8 +225,39 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h2>Recent Activity Log</h2>
+        <h2>System Dashboard</h2>
+
+        <!-- Server Status & Metrics -->
+        <div class="row">
+            <div class="col">
+                <div class="status">
+                    <div class="status-item">
+                        <h3>Server Status:</h3>
+                        <span>Running</span>
+                    </div>
+                    <div class="status-item">
+                        <h3>CPU Usage:</h3>
+                        <span>75%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="status">
+                    <div class="status-item">
+                        <h3>Disk Usage:</h3>
+                        <span>60GB/100GB</span>
+                    </div>
+                    <div class="status-item">
+                        <h3>Network Traffic:</h3>
+                        <span>50 Mbps</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Log -->
         <div class="card">
+            <h2>Recent Activity Log</h2>
             <ul>
                 <li>Server Started</li>
                 <li>New Website Created</li>
@@ -214,6 +265,7 @@
             </ul>
         </div>
 
+        <!-- Quick Actions -->
         <div class="card">
             <h2>Quick Actions</h2>
             <a href="#" class="btn">Create New Website</a>
