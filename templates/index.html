@@ -4,74 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kubedge Web Hosting</title>
+    <!-- Add Bootstrap CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ3QJXf3g7y5deV0QBOUQk9p5g+RYdgCq1s0Sh/fdC6WxaQjc8hvY5bVh3Qg" crossorigin="anonymous">
+    
+    <!-- Google Fonts for sleek fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f1f1f1;
+            font-family: 'Roboto', sans-serif;
         }
         .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
+            margin-top: 80px;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+        .header-text {
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 40px;
         }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+        .btn-custom {
+            background-color: #1a73e8;
             color: white;
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
         }
-        button:hover {
-            background-color: #45a049;
+        .btn-custom:hover {
+            background-color: #0c5bb1;
+            transform: translateY(-3px);
+        }
+        .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #1a73e8;
+            box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+        }
+        .form-group label {
+            font-weight: 500;
+        }
+        .form-control, .btn {
+            margin-bottom: 20px;
+        }
+        .message {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #999;
+        }
+        .footer a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .btn-icon {
+            margin-right: 8px;
+        }
+        .hover-icon:hover {
+            color: #1a73e8;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Kubedge Web Hosting</h1>
-        <form method="POST" action="/deploy">
-            <label for="static_choice">Choose Static Web App Type:</label>
-            <select id="static_choice" name="static_choice" required>
-                <option value="1">HTML</option>
-                <option value="2">CSS</option>
-                <option value="3">Both HTML and CSS</option>
-            </select>
-
-            <label for="process_name">Process Name (lowercase, alphanumeric, '-', or '.')</label>
-            <input type="text" id="process_name" name="process_name" required>
-
-            <label for="html_path">Directory Path (e.g., /path/to/webapp):</label>
-            <input type="text" id="html_path" name="html_path" required>
-
-            <label for="container_port">Container Port (e.g., 80):</label>
-            <input type="number" id="container_port" name="container_port" required>
-
-            <label for="access_port">Access Port (e.g., 8080):</label>
-            <input type="number" id="access_port" name="access_port" required>
-
-            <button type="submit">Deploy Web App</button>
+        <h2 class="header-text">Welcome to Kubedge Web Hosting</h2>
+        
+        {% if message %}
+        <div class="message">
+            {{ message }}
+        </div>
+        {% endif %}
+        
+        <p class="text-center">Easily deploy your web applications and manage your hosting. Choose your deployment type and enter details below.</p>
+        
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label for="appType">Select App Type:</label>
+                <select class="form-control" id="appType" name="appType" required>
+                    <option value="static">Static Website</option>
+                    <option value="dynamic">Dynamic Web Application</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="processName">Enter Process Name:</label>
+                <input type="text" class="form-control" id="processName" name="processName" placeholder="e.g., my-web-app" required>
+            </div>
+            
+            <button type="submit" class="btn btn-custom btn-block w-100">
+                <i class="fas fa-cloud-upload-alt btn-icon"></i> Deploy Now
+            </button>
         </form>
+
+        <div class="footer">
+            <p>Need help? Visit <a href="https://kubedge.com/help" target="_blank">Kubedge Help Center</a></p>
+        </div>
     </div>
+
+    <!-- Add Bootstrap JS and dependencies from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybB2d5tK20XhHpY2STK3gZxhU1RbF1g8h6nxG3B5htEJ8g0Ke3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8Fqgz7pm5bb2gpa6nnF2i/ZtLNpdTo/9BGRd43ug/f1wQZ" crossorigin="anonymous"></script>
 </body>
 </html>
