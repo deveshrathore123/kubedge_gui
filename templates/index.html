@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KubEdge - Unlock Hosting at the Edge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap" rel="stylesheet"> <!-- Use a good font -->
     <style>
         /* Global Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Cabin', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
             overflow-x: hidden;
         }
 
         /* Header Styles */
         header {
-            background-color: #000;
+            background-color: #2c3e50;
             color: white;
             padding: 40px 20px;
             text-align: center;
@@ -57,13 +58,6 @@
             color: #e74c3c;
         }
 
-        header .user-info {
-            position: absolute;
-            right: 30px;
-            top: 30px;
-            font-size: 14px;
-        }
-
         /* Sidebar */
         .sidebar {
             width: 250px;
@@ -96,7 +90,7 @@
             padding: 30px 20px;
             padding-bottom: 70px;
             min-height: 100vh;
-            background-color: #1d1d1d;
+            background-color: #f4f4f4;
             border-radius: 8px;
         }
 
@@ -112,7 +106,7 @@
         }
 
         .card {
-            background-color: #333;
+            background-color: #fff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 25px;
             margin-bottom: 20px;
@@ -126,7 +120,7 @@
         }
 
         .card h2 {
-            color: #fff;
+            color: #333;
             font-size: 1.6em;
             margin-bottom: 15px;
         }
@@ -139,32 +133,12 @@
         .card ul li {
             margin-bottom: 10px;
             font-size: 1.1em;
-            color: #ccc;
-        }
-
-        .status {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #34495e;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-
-        .status .status-item {
-            color: white;
-            font-size: 1.1em;
-        }
-
-        .status .status-item span {
-            font-weight: bold;
-            color: #e74c3c;
+            color: #666;
         }
 
         .btn {
             padding: 12px 25px;
-            background-color: #e74c3c;
+            background-color: #3498db;
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -174,12 +148,22 @@
         }
 
         .btn:hover {
-            background-color: #c0392b;
+            background-color: #2980b9;
+        }
+
+        .status {
+            background-color: #3498db;
+            padding: 15px;
+            color: white;
+            font-size: 1.3em;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         /* Footer */
         footer {
-            background-color: #000;
+            background-color: #2c3e50;
             color: white;
             text-align: center;
             padding: 15px;
@@ -200,77 +184,55 @@
             <h1>KubEdge</h1>
             <p>Unlock Hosting at the Edge</p>
         </div>
-        <div class="user-info">
-            <span>Welcome, User!</span> | <a href="#">Logout</a>
-        </div>
         <nav>
             <a href="#">Dashboard</a>
             <a href="#">Server Management</a>
             <a href="#">File Manager</a>
-            <a href="#">Support</a>
             <a href="#">Settings</a>
         </nav>
     </header>
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#" class="active">Dashboard</a>
+        <a href="#">Dashboard</a>
         <a href="#">Server Management</a>
         <a href="#">File Manager</a>
         <a href="#">DNS Management</a>
-        <a href="#">Security</a>
         <a href="#">Backup & Restore</a>
         <a href="#">Support</a>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
-        <h2>System Dashboard</h2>
+        <h2>Dashboard</h2>
 
-        <!-- Server Status & Metrics -->
-        <div class="row">
-            <div class="col">
-                <div class="status">
-                    <div class="status-item">
-                        <h3>Server Status:</h3>
-                        <span>Running</span>
-                    </div>
-                    <div class="status-item">
-                        <h3>CPU Usage:</h3>
-                        <span>75%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="status">
-                    <div class="status-item">
-                        <h3>Disk Usage:</h3>
-                        <span>60GB/100GB</span>
-                    </div>
-                    <div class="status-item">
-                        <h3>Network Traffic:</h3>
-                        <span>50 Mbps</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Recent Activity Log -->
-        <div class="card">
-            <h2>Recent Activity Log</h2>
-            <ul>
-                <li>Server Started</li>
-                <li>New Website Created</li>
-                <li>Backup Completed</li>
-            </ul>
+        <!-- Server Status -->
+        <div class="status">
+            Server is Running Smoothly
         </div>
 
         <!-- Quick Actions -->
-        <div class="card">
-            <h2>Quick Actions</h2>
-            <a href="#" class="btn">Create New Website</a>
-            <a href="#" class="btn">Manage DNS</a>
-            <a href="#" class="btn">Start New Server</a>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <h2>Create New Website</h2>
+                    <a href="#" class="btn">Create Website</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <h2>Manage Servers</h2>
+                    <a href="#" class="btn">Start Server</a>
+                    <a href="#" class="btn">Stop Server</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <h2>Manage DNS</h2>
+                    <a href="#" class="btn">Add DNS Record</a>
+                    <a href="#" class="btn">Edit DNS Records</a>
+                </div>
+            </div>
         </div>
 
     </div>
