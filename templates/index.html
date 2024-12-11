@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KubEdge - Unlock Hosting at the Edge</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap" rel="stylesheet"> <!-- Use a good font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap" rel="stylesheet"> <!-- Use a clean, modern font -->
     <style>
         /* Global Styles */
         body {
@@ -15,29 +15,28 @@
             background-color: #fff;
             color: #333;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* Header Styles */
         header {
-            background-color: #2c3e50;
+            background-color: #34495e;
             color: white;
             padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 3.5em;
+            font-size: 3em;
             margin: 0;
-            color: #fff;
             font-weight: bold;
             letter-spacing: 2px;
         }
 
         header p {
-            font-size: 1.3em;
-            margin: 10px 0 0;
+            font-size: 1.2em;
+            margin-top: 10px;
             font-style: italic;
         }
 
@@ -47,7 +46,7 @@
 
         header nav a {
             color: white;
-            margin: 0 20px;
+            margin: 0 15px;
             text-decoration: none;
             font-size: 1.1em;
             font-weight: 600;
@@ -92,22 +91,25 @@
             min-height: 100vh;
             background-color: #f4f4f4;
             border-radius: 8px;
+            transition: margin-left 0.3s ease;
         }
 
         .row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .col {
             flex: 1;
+            min-width: 250px;
             margin: 10px;
         }
 
         .card {
             background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 25px;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -116,7 +118,7 @@
 
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .card h2 {
@@ -144,11 +146,12 @@
             border-radius: 8px;
             font-size: 1.1em;
             margin-right: 15px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .btn:hover {
             background-color: #2980b9;
+            transform: scale(1.05);
         }
 
         .status {
@@ -163,7 +166,7 @@
 
         /* Footer */
         footer {
-            background-color: #2c3e50;
+            background-color: #34495e;
             color: white;
             text-align: center;
             padding: 15px;
@@ -171,6 +174,26 @@
             bottom: 0;
             width: 100%;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 220px;
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
         }
 
     </style>
