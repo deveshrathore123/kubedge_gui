@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('./images/background_image.jpg');
+            background-image: url('/static/images/background_image.jpg'); /* Correct path to background image */
             background-size: cover;
             background-position: center;
             color: white;
@@ -50,7 +50,7 @@
 
     <!-- Form for User Details -->
     <div class="form-container">
-        <form action="/submit-details" method="POST">
+        <form action="/static/html" method="POST">
             <label for="process_name">Process Name (required):</label>
             <input type="text" id="process_name" name="process_name" required>
 
