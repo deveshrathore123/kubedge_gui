@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="KubEdge: Revolutionizing Cloud Computing with Kubernetes and Docker">
-    <meta name="keywords" content="KubEdge, Kubernetes, Docker, CI/CD, Cloud Computing, DevOps, Prometheus, Grafana">
+    <meta name="keywords" content="KubEdge, Kubernetes, Docker, CI/CD, Cloud Computing, DevOps">
     <meta name="author" content="Devesh Singh Rathore">
     <title>KubEdge Web Hosting</title>
 
@@ -42,6 +42,7 @@
             margin-bottom: 30px;
         }
 
+        /* Button Container */
         .button-container {
             margin: 20px;
         }
@@ -49,7 +50,7 @@
         .button-container a {
             display: inline-block;
             margin: 15px;
-            padding: 15px 30px;
+            padding: 20px 40px;
             background-color: #007BFF;
             color: white;
             font-size: 1.3em;
@@ -62,17 +63,6 @@
         .button-container a:hover {
             background-color: #0056b3;
             transform: scale(1.1);
-        }
-
-        .hero-title {
-            font-size: 4em;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .hero-description {
-            font-size: 1.5em;
-            margin-bottom: 30px;
         }
 
         .btn-custom {
@@ -92,45 +82,23 @@
             transform: scale(1.1);
         }
 
-        /* Card Style */
-        .tools-card, .testimonial-card, .feature-card {
-            background-color: #f9f9f9;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px;
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        /* Centered Hero Section */
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-top: 20px;
         }
 
-        .tools-card:hover, .testimonial-card:hover, .feature-card:hover {
-            transform: scale(1.05);
+        .hero-description {
+            font-size: 1.5em;
+            margin-bottom: 30px;
         }
 
-        .tools-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .tools-card img, .testimonial-card img {
-            width: 80px;
-            margin-bottom: 20px;
-        }
-
-        .tools-card h4, .testimonial-card h5 {
-            color: #333;
-        }
-
-        .about-section img {
-            border-radius: 10px;
-            max-height: 300px;
-        }
-
+        /* Footer Section */
         footer {
             background-color: #333;
             color: #fff;
-            padding: 30px;
+            padding: 20px;
             margin-top: 50px;
         }
 
@@ -155,11 +123,9 @@
     <!-- Header -->
     <header class="bg-dark text-white p-4">
         <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Ensure the logo image is in the 'static/images' folder -->
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="KubEdge Logo" class="img-fluid mb-4 logo-size" style="width: 150px;">
             <nav>
-                <a href="#about" class="text-white me-3">About</a>
-                <a href="#documentation" class="text-white">Documentation</a>
+                <!-- You can add more navigation options here if required -->
             </nav>
         </div>
     </header>
@@ -168,16 +134,16 @@
     <main class="container my-5">
         <!-- Hero Section -->
         <section class="hero text-center" data-aos="fade-in">
-            <!-- Ensure the logo image is in the 'static/images' folder -->
+            <!-- Logo Image -->
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="KubEdge Logo" class="img-fluid mb-4 logo-size" style="max-width: 200px;">
-            <h1 class="hero-title display-3 text-uppercase">KubEdge</h1>
-            <p class="hero-description lead fs-4 mt-3 mb-4">Unlock Hosting at the EDGE with Kubernetes and Docker</p>
-            <a href="#documentation" class="btn-custom">Learn More</a>
+            <h1 class="hero-title text-uppercase">KubEdge Web Hosting</h1>
+            <p class="hero-description lead fs-4 mt-3 mb-4">Unlock the power of cloud hosting with Kubernetes and Docker</p>
+            <a href="#action-options" class="btn-custom">Get Started</a>
         </section>
 
-        <!-- Button Section -->
-        <section class="my-5">
-            <h2 class="text-dark">Choose Your Hosting Option</h2>
+        <!-- Action Options Section (Hosting Options) -->
+        <section id="action-options" class="my-5">
+            <h2 class="text-dark">Choose an Action</h2>
             <div class="button-container">
                 <a href="/static">Host Static Website</a>
                 <a href="/dynamic">Host Dynamic Website</a>
@@ -185,21 +151,12 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="about-section mt-5 text-center">
-            <h2 class="text-dark">About KubEdge</h2>
-            <!-- Ensure the hero image is in the 'static/images' folder -->
-            <img src="{{ url_for('static', filename='images/hero-image.jpg') }}" alt="Hero Image" class="img-fluid my-4" style="border-radius: 8px; max-height: 300px;">
-            <p class="text-dark"><strong>Devesh Singh Rathore</strong> is the creator of KubEdge, a tool designed to revolutionize cloud computing using Kubernetes and Docker.</p>
-            <a href="/documents/documentation.html" class="btn-custom">View Documentation</a>
-        </section>
-
         <!-- Footer Section -->
         <footer class="text-center">
             <div class="footer-logo-container">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="KubEdge Logo" class="footer-logo logo-size">
             </div>
-            <p class="text-light">Founder: Devesh Singh Rathore | Email: <a href="mailto:deveshrathore13@gmail.com" class="text-primary">deveshrathore13@gmail.com</a></p>
+            <p class="text-light">Created by: <strong>Devesh Singh Rathore</strong> | Email: <a href="mailto:deveshrathore13@gmail.com" class="text-primary">deveshrathore13@gmail.com</a></p>
         </footer>
     </main>
 
