@@ -3,266 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KubEdge Hosting</title>
+    <title>KubEdge Web Hosting</title>
     <style>
-        /* Reset some basic styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #f0f3f5;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             color: #333;
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Global Container */
-        .container {
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background: #4a90e2;
-            color: white;
-            padding: 20px;
-            position: fixed;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            flex-direction: column;
         }
 
-        .sidebar h2 {
+        .container {
             text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-            margin-bottom: 50px;
-            color: white;
-        }
-
-        .sidebar a {
-            display: block;
-            color: #ffffff;
-            padding: 12px 20px;
-            text-decoration: none;
-            font-size: 18px;
-            width: 100%;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #3b82f6;
-            color: white;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 250px;
+            background-color: white;
             padding: 50px;
-            flex-grow: 1;
-            overflow-x: hidden;
-            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
         }
 
-        .hero-section {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            border-radius: 15px;
-            margin-bottom: 60px;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-section h1 {
-            font-size: 3em;
+        h1 {
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
 
-        .hero-section p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
-        }
-
-        /* Button Styling */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        p {
+            font-size: 1.2em;
+            color: red;
         }
 
         .button {
-            display: inline-block;
-            padding: 18px 36px;
-            text-align: center;
-            background-color: #ff4081;
+            padding: 15px 30px;
+            background-color: #4CAF50;
             color: white;
-            font-size: 1.3em;
-            text-decoration: none;
+            font-size: 1.2em;
+            border: none;
             border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         .button:hover {
-            background-color: #f50057;
-            transform: scale(1.05);
-        }
-
-        .button:active {
-            background-color: #c51162;
-            transform: scale(0.98);
-        }
-
-        /* Features Section */
-        .features-section {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-card h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #0072ff;
-        }
-
-        .feature-card p {
-            font-size: 1.2em;
-            color: #777;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #2d3436;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 60px;
-        }
-
-        .footer a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #ff4081;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-                padding: 15px;
-            }
-
-            .main-content {
-                margin-left: 200px;
-                padding: 20px;
-            }
-
-            .hero-section {
-                padding: 50px 0;
-            }
-
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .button {
-                width: 80%;
-                margin-bottom: 20px;
-            }
-
-            .features-section {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .feature-card {
-                width: 80%;
-                margin-bottom: 30px;
-            }
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>KubEdge Hosting</h2>
-        <a href="/" class="active">Dashboard</a>
-        <a href="/host-static">Host Static Web</a>
-        <a href="/host-dynamic">Host Dynamic Web</a>
-        <a href="/create-database">Create Database</a>
-    </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <h1>Welcome to KubEdge Web Hosting</h1>
-            <p>Reliable, Fast, and Secure Hosting for Your Websites and Databases.</p>
-            <div class="button-container">
-                <a href="/host-static" class="button">Host Static Web</a>
-                <a href="/host-dynamic" class="button">Host Dynamic Web</a>
-                <a href="/create-database" class="button">Create Database</a>
-            </div>
-        </div>
+<div class="container">
+    <h1>KubEdge Hosting Dashboard</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <button class="button" onclick="window.location.href='/deploy_static'">Host Static Website</button>
+    <button class="button" onclick="window.location.href='/deploy_dynamic'">Host Dynamic Web App</button>
+</div>
 
-        <!-- Features Section -->
-        <div class="features-section">
-            <div class="feature-card">
-                <h3>Fast Performance</h3>
-                <p>Our servers are optimized for the fastest load times, giving your users the best experience.</p>
-            </div>
-            <div class="feature-card">
-                <h3>24/7 Support</h3>
-                <p>Our expert support team is available 24/7 to assist you with any hosting-related issues.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Top-notch Security</h3>
-                <p>Your data is secure with SSL certificates, regular backups, and advanced protection against threats.</p>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2024 KubEdge Web Hosting | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-        </div>
-    </div>
 </body>
 </html>
