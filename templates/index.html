@@ -21,19 +21,18 @@
         /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background: url('./images/background_image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
             text-align: center;
             padding-top: 50px;
-            overflow-x: hidden;
         }
 
         h1 {
-            color: #ffffff;
+            color: #222;
             margin-bottom: 30px;
             font-size: 3em;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .button-container {
@@ -62,21 +61,21 @@
             font-size: 4em;
             font-weight: bold;
             margin-top: 20px;
-            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+            color: #333;
         }
 
         .hero-description {
             font-size: 1.5em;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.7);
             margin-bottom: 30px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .btn-custom {
             font-size: 1.2rem;
             padding: 15px 30px;
             margin-top: 30px;
-            background-color: #00BFFF;
+            background-color: #28a745;
             border-radius: 8px;
             color: white;
             text-decoration: none;
@@ -85,17 +84,17 @@
         }
 
         .btn-custom:hover {
-            background-color: #007bbf;
+            background-color: #218838;
             transform: scale(1.1);
         }
 
         /* Card Style */
         .tools-card, .testimonial-card, .feature-card {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #f9f9f9;
             border-radius: 15px;
             padding: 20px;
             margin: 20px;
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -116,7 +115,7 @@
         }
 
         .tools-card h4, .testimonial-card h5 {
-            color: #fff;
+            color: #333;
         }
 
         .about-section img {
@@ -138,6 +137,11 @@
 
         footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Footer Logo */
+        .footer-logo-container img {
+            width: 100px;
         }
     </style>
 </head>
@@ -167,7 +171,7 @@
 
         <!-- Button Section -->
         <section class="my-5">
-            <h2 class="text-white">Choose Your Hosting Option</h2>
+            <h2 class="text-dark">Choose Your Hosting Option</h2>
             <div class="button-container">
                 <a href="/static">Host Static Website</a>
                 <a href="/dynamic">Host Dynamic Website</a>
@@ -177,9 +181,9 @@
 
         <!-- About Section -->
         <section class="about-section mt-5 text-center">
-            <h2 class="text-white">About KubEdge</h2>
+            <h2 class="text-dark">About KubEdge</h2>
             <img src="images/hero-image.jpg" alt="Hero Image" class="img-fluid my-4" style="border-radius: 8px; max-height: 300px;">
-            <p class="text-white"><strong>Devesh Singh Rathore</strong> is the creator of KubEdge, a tool designed to revolutionize cloud computing using Kubernetes and Docker.</p>
+            <p class="text-dark"><strong>Devesh Singh Rathore</strong> is the creator of KubEdge, a tool designed to revolutionize cloud computing using Kubernetes and Docker.</p>
             <a href="/documents/documentation.html" class="btn btn-dark btn-lg mt-3">View Documents</a>
         </section>
 
