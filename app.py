@@ -21,3 +21,7 @@ def dynamic_page():
 @app.route('/database')
 def database_page():
     return render_template('database/database.html')
+
+# Run the app on all available network interfaces
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
