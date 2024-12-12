@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,98 +7,70 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #f4f4f4;
             text-align: center;
+            padding-top: 30px;
         }
-
         h1 {
             color: #4CAF50;
             margin-bottom: 20px;
         }
-
-        .button-container {
-            margin-bottom: 30px;
+        h2 {
+            color: #333;
         }
-
-        .back-button {
+        ul {
+            text-align: left;
+            margin: 0 auto;
+            display: inline-block;
+        }
+        ul li {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
             padding: 10px 20px;
             background-color: #2196F3;
             color: white;
-            border: none;
+            font-size: 1.2em;
+            text-decoration: none;
             border-radius: 5px;
-            cursor: pointer;
             transition: background-color 0.3s;
         }
-
-        .back-button:hover {
+        a:hover {
             background-color: #1976D2;
-        }
-
-        h3 {
-            margin-top: 20px;
-            font-size: 1.3em;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-            text-align: left;
-        }
-
-        ul li {
-            margin-bottom: 10px;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Databases</h1>
-        <div class="button-container">
-            <a href="index.html">
-                <button class="back-button">Back to Home</button>
-            </a>
-        </div>
 
-        <p>Choose the type of database for your website:</p>
+    <h1>Databases</h1>
 
-        <h3>Relational Databases:</h3>
-        <ul>
-            <li><strong>MySQL</strong></li>
-            <li><strong>PostgreSQL</strong></li>
-            <li><strong>SQLite</strong></li>
-            <li><strong>MariaDB</strong></li>
-            <li><strong>Oracle Database</strong></li>
-            <li><strong>Microsoft SQL Server</strong></li>
-            <li><strong>IBM Db2</strong></li>
-        </ul>
+    <h2>Relational Databases:</h2>
+    <ul>
+        <li><strong>MySQL</strong></li>
+        <li><strong>PostgreSQL</strong></li>
+        <li><strong>SQLite</strong></li>
+        <li><strong>MariaDB</strong></li>
+        <li><strong>Oracle Database</strong></li>
+        <li><strong>Microsoft SQL Server</strong></li>
+        <li><strong>IBM Db2</strong></li>
+    </ul>
 
-        <h3>Non-Relational (NoSQL) Databases:</h3>
-        <ul>
-            <li><strong>MongoDB</strong></li>
-            <li><strong>Cassandra</strong></li>
-            <li><strong>CouchDB</strong></li>
-            <li><strong>Redis</strong></li>
-            <li><strong>Elasticsearch</strong></li>
-            <li><strong>Neo4j</strong></li>
-            <li><strong>DynamoDB</strong></li>
-        </ul>
-    </div>
+    <h2>Non-Relational (NoSQL) Databases:</h2>
+    <ul>
+        <li><strong>MongoDB</strong> (Document-based)</li>
+        <li><strong>Cassandra</strong> (Wide-column store)</li>
+        <li><strong>CouchDB</strong> (Document-based)</li>
+        <li><strong>Redis</strong> (Key-value store)</li>
+        <li><strong>Elasticsearch</strong> (Document store, search engine)</li>
+        <li><strong>Neo4j</strong> (Graph-based)</li>
+        <li><strong>DynamoDB</strong> (Key-value store by AWS)</li>
+        <li><strong>Couchbase</strong> (Document-based, key-value)</li>
+    </ul>
+
+    <a href="/">Back to Home</a>
+
 </body>
-
 </html>
