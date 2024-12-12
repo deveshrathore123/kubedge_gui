@@ -3,97 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Page</title>
+    <title>Get User Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('./images/background_image.jpg');  /* Set background image */
+            background-image: url('./images/background_image.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding-top: 30px;
         }
-        h1 {
-            color: black;  /* Change HTML Page color to black */
-        }
-        p {
-            font-size: 1.2em;
-            color: #333;
-        }
-        .logo {
-            margin-top: 30px;
-        }
         .form-container {
-            margin-top: 40px;
-            text-align: left;
-            display: inline-block;
-            max-width: 500px;
-            background-color: rgba(255, 255, 255, 0.8);  /* Light background for form */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 600px;
+            text-align: left;
         }
-        .form-container input, .form-container select {
+        label {
+            font-size: 1.2em;
+            color: #fff;
+        }
+        input, button {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
             font-size: 1em;
-            color: black;  /* Set text color to black */
-        }
-        .form-container label {
-            font-weight: bold;
-            color: black;  /* Change label text color to black */
-        }
-        .form-container button {
-            padding: 12px 25px;
-            background-color: #2196F3;
-            color: white;
-            font-size: 1.2em;
-            text-decoration: none;
             border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            border: 1px solid #ddd;
         }
-        .form-container button:hover {
-            background-color: #1976D2;
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <!-- KubEdge Logo -->
-    <div class="logo">
-        <!-- Use the path './images/logo.png' for the logo image -->
-        <img src="./images/logo.png" alt="KubEdge Logo" width="200px">
-    </div>
+    <h1>Enter Details for Static Web Hosting</h1>
 
-    <h1>HTML Page</h1>
-    <p>This page demonstrates the use of HTML for creating a static website. Please provide the following details to deploy the static web app successfully:</p>
-
-    <!-- Form to Collect Details from the User -->
+    <!-- Form for User Details -->
     <div class="form-container">
         <form action="/submit-details" method="POST">
-            <label for="process-name">Process Name (required):</label>
-            <input type="text" id="process-name" name="process_name" required>
+            <label for="process_name">Process Name (required):</label>
+            <input type="text" id="process_name" name="process_name" required>
 
-            <label for="github-repo">GitHub Repository URL (optional):</label>
-            <input type="url" id="github-repo" name="github_url">
+            <label for="github_url">GitHub Repository URL (optional):</label>
+            <input type="url" id="github_url" name="github_url">
 
-            <label for="local-dir">Local Directory Path (required if GitHub URL is not provided):</label>
-            <input type="text" id="local-dir" name="local_directory" required>
+            <label for="local_directory">Local Directory Path (required if GitHub URL is not provided):</label>
+            <input type="text" id="local_directory" name="local_directory" required>
 
-            <label for="docker-image">Docker Image Name (optional):</label>
-            <input type="text" id="docker-image" name="docker_image">
+            <label for="docker_image">Docker Image Name (optional):</label>
+            <input type="text" id="docker_image" name="docker_image">
 
-            <label for="container-port">Container Port (optional, default 80):</label>
-            <input type="number" id="container-port" name="container_port" value="80" min="1">
+            <label for="container_port">Container Port (optional, default 80):</label>
+            <input type="number" id="container_port" name="container_port" value="80">
 
-            <label for="access-port">Access Port (optional, default 8080):</label>
-            <input type="number" id="access-port" name="access_port" value="8080" min="1">
+            <label for="access_port">Access Port (optional, default 8080):</label>
+            <input type="number" id="access_port" name="access_port" value="8080">
 
             <button type="submit">Submit Details</button>
         </form>
