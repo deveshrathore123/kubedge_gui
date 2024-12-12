@@ -19,4 +19,4 @@ def create_database():
     return "Create Database Page"
 
 if __name__ == '__main__':
-    app.run(debug=True, port=9876)
+    app.run(debug=True, host='0.0.0.0', port=9876)
