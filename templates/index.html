@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KubEdge Hosting</title>
     <style>
-        /* Reset some basic styles */
+        /* Basic Reset */
         * {
             margin: 0;
             padding: 0;
@@ -13,110 +13,222 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
             color: #333;
             display: flex;
             min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Global Container */
+        .container {
+            width: 100%;
+            margin: 0 auto;
         }
 
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #2d3436;
+            background: linear-gradient(180deg, #2980b9, #6dd5fa);
             color: white;
-            padding-top: 20px;
+            padding: 30px;
             position: fixed;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 40px;
         }
 
         .sidebar a {
             display: block;
-            color: #dfe6e9;
-            padding: 15px;
+            color: #ecf0f1;
+            padding: 12px 20px;
             text-decoration: none;
             font-size: 18px;
-            transition: background-color 0.3s;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
-        .sidebar a:hover {
-            background-color: #00b894;
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #1abc9c;
             color: white;
         }
 
-        .sidebar a.active {
-            background-color: #00b894;
-            color: white;
-        }
-
-        /* Main content */
+        /* Main Content */
         .main-content {
             margin-left: 250px;
             padding: 40px;
             width: 100%;
+            overflow-x: hidden;
         }
 
-        h1 {
-            font-size: 2.5em;
+        .hero-section {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            padding: 60px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
             margin-bottom: 20px;
-            color: #2d3436;
         }
 
+        .hero-section p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+
+        /* Button Styling */
         .button-container {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 300px;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
         }
 
         .button {
             display: block;
-            padding: 20px;
+            padding: 18px 36px;
             text-align: center;
-            background-color: #00b894;
+            background-color: #1abc9c;
             color: white;
-            font-size: 1.5em;
+            font-size: 1.4em;
             text-decoration: none;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 250px;
         }
 
         .button:hover {
-            background-color: #098f63;
+            background-color: #16a085;
             transform: scale(1.05);
         }
 
         .button:active {
-            background-color: #06a77d;
+            background-color: #1abc9c;
+            transform: scale(0.98);
         }
 
-        .container {
-            max-width: 800px;
+        /* Features Section */
+        .features-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 80px;
+            gap: 30px;
         }
 
-        .footer {
-            margin-top: 40px;
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
             text-align: center;
-            color: #aaa;
+            transition: all 0.3s ease;
         }
 
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 100px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.2em;
+        }
+        
+        .footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #1abc9c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+                padding: 20px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+                padding: 20px;
+            }
+
+            .hero-section {
+                padding: 40px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .features-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-card {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <h2 style="text-align: center; color: white;">KubEdge</h2>
+        <h2>KubEdge Hosting</h2>
         <a href="/" class="active">Dashboard</a>
         <a href="/host-static">Host Static Web</a>
         <a href="/host-dynamic">Host Dynamic Web</a>
         <a href="/create-database">Create Database</a>
     </div>
 
-    <!-- Main content -->
+    <!-- Main Content -->
     <div class="main-content">
-        <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
             <h1>Welcome to KubEdge Web Hosting</h1>
+            <p>Experience the most reliable, fast, and secure hosting solutions for your websites and databases.</p>
             <div class="button-container">
                 <a href="/host-static" class="button">Host Static Web</a>
                 <a href="/host-dynamic" class="button">Host Dynamic Web</a>
@@ -124,9 +236,25 @@
             </div>
         </div>
 
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="feature-card">
+                <h3>Fast & Reliable</h3>
+                <p>Our hosting ensures your websites load at lightning speed with 99.9% uptime.</p>
+            </div>
+            <div class="feature-card">
+                <h3>24/7 Support</h3>
+                <p>Get help whenever you need it from our expert support team, available round-the-clock.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Secure Hosting</h3>
+                <p>We provide top-notch security with SSL certificates and regular backups.</p>
+            </div>
+        </div>
+
         <!-- Footer -->
         <div class="footer">
-            <p>&copy; 2024 KubEdge Web Hosting</p>
+            <p>&copy; 2024 KubEdge Web Hosting. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </div>
 </body>
