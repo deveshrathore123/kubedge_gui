@@ -3,75 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get User Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('/static/images/background_image.jpg'); /* Correct path to background image */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding-top: 30px;
-        }
-        .form-container {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 8px;
-            display: inline-block;
-            max-width: 600px;
-            text-align: left;
-        }
-        label {
-            font-size: 1.2em;
-            color: #fff;
-        }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 1em;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Deploy Static Web App</title>
 </head>
 <body>
+    <h2>Deploy Static Web App</h2>
+    <form action="/submit" method="POST">
+        <label for="process_name">Process Name (required):</label>
+        <input type="text" id="process_name" name="process_name" required><br><br>
 
-    <h1>Enter Details for Static Web Hosting</h1>
+        <label for="github_url">GitHub Repository URL (optional):</label>
+        <input type="text" id="github_url" name="github_url"><br><br>
 
-    <!-- Form for User Details -->
-    <div class="form-container">
-        <form action="/static/html" method="POST">
-            <label for="process_name">Process Name (required):</label>
-            <input type="text" id="process_name" name="process_name" required>
+        <label for="local_directory">Local Directory Path (required if GitHub URL is not provided):</label>
+        <input type="text" id="local_directory" name="local_directory" required><br><br>
 
-            <label for="github_url">GitHub Repository URL (optional):</label>
-            <input type="url" id="github_url" name="github_url">
+        <label for="docker_image">Docker Image Name (optional):</label>
+        <input type="text" id="docker_image" name="docker_image"><br><br>
 
-            <label for="local_directory">Local Directory Path (required if GitHub URL is not provided):</label>
-            <input type="text" id="local_directory" name="local_directory" required>
+        <label for="container_port">Container Port (optional, default 80):</label>
+        <input type="text" id="container_port" name="container_port" value="80"><br><br>
 
-            <label for="docker_image">Docker Image Name (optional):</label>
-            <input type="text" id="docker_image" name="docker_image">
+        <label for="access_port">Access Port (optional, default 8080):</label>
+        <input type="text" id="access_port" name="access_port" value="8080"><br><br>
 
-            <label for="container_port">Container Port (optional, default 80):</label>
-            <input type="number" id="container_port" name="container_port" value="80">
-
-            <label for="access_port">Access Port (optional, default 8080):</label>
-            <input type="number" id="access_port" name="access_port" value="8080">
-
-            <button type="submit">Submit Details</button>
-        </form>
-    </div>
-
+        <input type="submit" value="Submit Details">
+    </form>
 </body>
 </html>
