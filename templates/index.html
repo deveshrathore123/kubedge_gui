@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,76 +7,42 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #f4f4f4;
             text-align: center;
+            padding-top: 50px;
         }
-
         h1 {
             color: #4CAF50;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-
         .button-container {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 40px;
+            margin: 20px;
         }
-
-        .tab-button {
-            padding: 20px 30px;
-            background-color: #4CAF50;
+        .button-container a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #2196F3;
             color: white;
-            border: none;
+            font-size: 1.2em;
+            text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
             transition: background-color 0.3s;
         }
-
-        .tab-button:hover {
-            background-color: #45a049;
-        }
-
-        footer {
-            margin-top: 40px;
-            font-size: 0.9em;
+        .button-container a:hover {
+            background-color: #1976D2;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Kubedge Web Hosting</h1>
-        <div class="button-container">
-            <a href="static.html">
-                <button class="tab-button">Host Static Web</button>
-            </a>
-            <a href="dynamic.html">
-                <button class="tab-button">Host Dynamic Web</button>
-            </a>
-            <a href="database.html">
-                <button class="tab-button">Create Database</button>
-            </a>
-        </div>
-        <footer>
-            <p>&copy; 2024 Kubedge Web Hosting. All Rights Reserved.</p>
-        </footer>
-    </div>
-</body>
 
+    <h1>Welcome to Kubedge Web Hosting</h1>
+
+    <div class="button-container">
+        <a href="/static">Host Static Website</a>
+        <a href="/dynamic">Host Dynamic Website</a>
+        <a href="/database">Create Database</a>
+    </div>
+
+</body>
 </html>
