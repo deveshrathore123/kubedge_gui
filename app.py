@@ -15,10 +15,11 @@ def static_page():
 @app.route('/static/html', methods=['GET', 'POST'])
 def static_html():
     if request.method == 'POST':
+        # Collecting the data from the form
         process_name = request.form['process_name']
-        github_url = request.form.get('github_url')
+        github_url = request.form.get('github_url')  # Optional
         local_directory = request.form['local_directory']
-        docker_image = request.form.get('docker_image')
+        docker_image = request.form.get('docker_image')  # Optional
         container_port = request.form.get('container_port', 80)  # Default to 80 if not provided
         access_port = request.form.get('access_port', 8080)  # Default to 8080 if not provided
 
@@ -31,49 +32,16 @@ def static_html():
         print(f"Access Port: {access_port}")
 
         # Redirect to a thank you page or confirmation page
-        return "Details submitted successfully!"
+        return render_template('submitted.html', process_name=process_name, github_url=github_url, 
+                               local_directory=local_directory, docker_image=docker_image,
+                               container_port=container_port, access_port=access_port)
 
     return render_template('static/html.html')  # This renders the form page on GET request
 
-@app.route('/static/html-css')
-def static_html_css():
-    return render_template('static/html_css.html')
-
-@app.route('/static/html-css-js')
-def static_html_css_js():
-    return render_template('static/html_css_js.html')
-
-# Route for dynamic website technologies
-@app.route('/dynamic')
-def dynamic_page():
-    return render_template('dynamic/dynamic.html')
-
-# Dynamic sub-pages
-@app.route('/dynamic/frontend')
-def dynamic_frontend():
-    return render_template('dynamic/frontend.html')
-
-@app.route('/dynamic/backend')
-def dynamic_backend():
-    return render_template('dynamic/backend.html')
-
-@app.route('/dynamic/additional-technologies')
-def dynamic_additional_technologies():
-    return render_template('dynamic/additional_technologies.html')
-
-# Route for database technologies
-@app.route('/database')
-def database_page():
-    return render_template('database/database.html')
-
-# Database sub-pages
-@app.route('/database/relational')
-def relational_databases():
-    return render_template('database/relational.html')
-
-@app.route('/database/nosql')
-def nosql_databases():
-    return render_template('database/nosql.html')
+# Route for submitted details (success page)
+@app.route('/submitted')
+def submitted():
+    return render_template('submitted.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
