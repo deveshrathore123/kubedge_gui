@@ -2,7 +2,6 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Route for the homepage
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -12,16 +11,18 @@ def index():
 def static_page():
     return render_template('static/static.html')
 
-# Route for dynamic website technologies
-@app.route('/dynamic')
-def dynamic_page():
-    return render_template('dynamic/dynamic.html')
+# New routes for static website sub-pages
+@app.route('/static/html')
+def static_html():
+    return render_template('static/html.html')
 
-# Route for database technologies
-@app.route('/database')
-def database_page():
-    return render_template('database/database.html')
+@app.route('/static/html-css')
+def static_html_css():
+    return render_template('static/html_css.html')
 
-# Run the app on all available network interfaces
+@app.route('/static/html-css-js')
+def static_html_css_js():
+    return render_template('static/html_css_js.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
