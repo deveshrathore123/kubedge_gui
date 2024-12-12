@@ -4,29 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deploy Static Web App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #000000; /* Black text color */
+            background-image: url('./background_image'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 28px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            width: 60%;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .example {
+            font-style: italic;
+            color: #888;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent footer */
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <h2>Deploy Static Web App</h2>
-    <form action="/submit" method="POST">
-        <label for="process_name">Process Name (required):</label>
-        <input type="text" id="process_name" name="process_name" required><br><br>
 
-        <label for="github_url">GitHub Repository URL (optional):</label>
-        <input type="text" id="github_url" name="github_url"><br><br>
+<header>
+    Static Web App Deployment
+</header>
 
-        <label for="local_directory">Local Directory Path (required if GitHub URL is not provided):</label>
-        <input type="text" id="local_directory" name="local_directory" required><br><br>
+<h2>Deploy Your Static Web App</h2>
 
-        <label for="docker_image">Docker Image Name (optional):</label>
-        <input type="text" id="docker_image" name="docker_image"><br><br>
+<form action="/submit" method="POST">
+    <label for="process_name">Process Name (required):</label>
+    <input type="text" id="process_name" name="process_name" required>
 
-        <label for="container_port">Container Port (optional, default 80):</label>
-        <input type="text" id="container_port" name="container_port" value="80"><br><br>
+    <label for="github_url">GitHub Repository URL (optional):</label>
+    <input type="text" id="github_url" name="github_url">
 
-        <label for="access_port">Access Port (optional, default 8080):</label>
-        <input type="text" id="access_port" name="access_port" value="8080"><br><br>
+    <label for="local_directory">Local Directory Path (required if GitHub URL is not provided):</label>
+    <input type="text" id="local_directory" name="local_directory" required>
 
-        <input type="submit" value="Submit Details">
-    </form>
+    <label for="docker_image">Docker Image Name (optional):</label>
+    <input type="text" id="docker_image" name="docker_image">
+
+    <label for="container_port">Container Port (optional, default 80):</label>
+    <input type="text" id="container_port" name="container_port">
+    <div class="info">Example: 80 (Default)</div>
+
+    <label for="access_port">Access Port (optional, default 8080):</label>
+    <input type="text" id="access_port" name="access_port">
+    <div class="info">Example: 8080 (Default)</div>
+
+    <input type="submit" value="Submit Details">
+</form>
+
+<footer>
+    &copy; 2024 Static Web App Hosting. All rights reserved.
+</footer>
+
 </body>
 </html>
