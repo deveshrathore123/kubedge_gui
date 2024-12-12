@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import subprocess
+import os
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def static_html():
 def submit_details():
     # Capture form details
     process_name = request.form['process_name']
-    github_url = request.form.get('github_url', '')
+    github_url = request.form.get('github_url')
     local_directory = request.form['local_directory']
     docker_image = request.form.get('docker_image', '')
     container_port = request.form.get('container_port', '80')  # Default to 80 if not provided
@@ -41,10 +42,10 @@ def submit_details():
             access_port
         ]
 
-        # Execute the shell script and capture the output
-        result = subprocess.run(shell_command, capture_output=True, text=True, check=True)
+        # Execute the shell script
+        result = subprocess.run(shell_command, capture_output=True, text=True)
 
-        # Pass the details and script output to the submitted.html page
+        # Redirect to the confirmation page with the result
         return render_template('submitted.html', 
                                process_name=process_name,
                                github_url=github_url,
@@ -52,7 +53,8 @@ def submit_details():
                                docker_image=docker_image,
                                container_port=container_port,
                                access_port=access_port,
-                               script_output=result.stdout)
+                               script_output=result.stdout,
+                               error_output=result.stderr)
 
     except subprocess.CalledProcessError as e:
         return f"An error occurred while executing the shell script: {e}"
