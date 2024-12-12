@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -12,9 +12,28 @@ def static_page():
     return render_template('static/static.html')
 
 # Static sub-pages
-@app.route('/static/html')
+@app.route('/static/html', methods=['GET', 'POST'])
 def static_html():
-    return render_template('static/html.html')
+    if request.method == 'POST':
+        process_name = request.form['process_name']
+        github_url = request.form.get('github_url')
+        local_directory = request.form['local_directory']
+        docker_image = request.form.get('docker_image')
+        container_port = request.form.get('container_port', 80)  # Default to 80 if not provided
+        access_port = request.form.get('access_port', 8080)  # Default to 8080 if not provided
+
+        # Process the received data (store in database, log, etc.)
+        print(f"Process Name: {process_name}")
+        print(f"GitHub URL: {github_url}")
+        print(f"Local Directory: {local_directory}")
+        print(f"Docker Image: {docker_image}")
+        print(f"Container Port: {container_port}")
+        print(f"Access Port: {access_port}")
+
+        # Redirect to a thank you page or confirmation page
+        return "Details submitted successfully!"
+
+    return render_template('static/html.html')  # This renders the form page on GET request
 
 @app.route('/static/html-css')
 def static_html_css():
