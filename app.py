@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+import subprocess
+import os
 
 app = Flask(__name__)
 
@@ -12,36 +14,50 @@ def static_page():
     return render_template('static/static.html')
 
 # Static sub-pages
-@app.route('/static/html', methods=['GET', 'POST'])
+@app.route('/static/html', methods=['GET'])
 def static_html():
-    if request.method == 'POST':
-        # Collecting the data from the form
-        process_name = request.form['process_name']
-        github_url = request.form.get('github_url')  # Optional
-        local_directory = request.form['local_directory']
-        docker_image = request.form.get('docker_image')  # Optional
-        container_port = request.form.get('container_port', 80)  # Default to 80 if not provided
-        access_port = request.form.get('access_port', 8080)  # Default to 8080 if not provided
+    return render_template('static/html.html')
 
-        # Process the received data (store in database, log, etc.)
-        print(f"Process Name: {process_name}")
-        print(f"GitHub URL: {github_url}")
-        print(f"Local Directory: {local_directory}")
-        print(f"Docker Image: {docker_image}")
-        print(f"Container Port: {container_port}")
-        print(f"Access Port: {access_port}")
+# Route to handle form submission
+@app.route('/submit', methods=['POST'])
+def submit_details():
+    # Capture form details
+    process_name = request.form['process_name']
+    github_url = request.form.get('github_url')
+    local_directory = request.form['local_directory']
+    docker_image = request.form.get('docker_image', '')
+    container_port = request.form.get('container_port', '80')  # Default to 80 if not provided
+    access_port = request.form.get('access_port', '8080')  # Default to 8080 if not provided
 
-        # Redirect to a thank you page or confirmation page
-        return render_template('submitted.html', process_name=process_name, github_url=github_url, 
-                               local_directory=local_directory, docker_image=docker_image,
-                               container_port=container_port, access_port=access_port)
+    # Pass these details to the shell script
+    # Ensure you pass them in the proper order as per the shell script arguments
+    try:
+        # Construct the command to run the shell script
+        shell_command = [
+            '/bin/bash', 'deploy_static.sh',
+            process_name,
+            github_url or '',  # If GitHub URL is empty, pass an empty string
+            local_directory,
+            docker_image or '',  # If Docker image is empty, pass an empty string
+            container_port,
+            access_port
+        ]
 
-    return render_template('static/html.html')  # This renders the form page on GET request
+        # Execute the shell script
+        subprocess.run(shell_command, check=True)
 
-# Route for submitted details (success page)
-@app.route('/submitted')
-def submitted():
-    return render_template('submitted.html')
+        # Redirect to a confirmation or success page
+        return "Details submitted successfully! Your static web app is being deployed."
+
+    except subprocess.CalledProcessError as e:
+        return f"An error occurred while executing the shell script: {e}"
+
+# Route for dynamic website technologies
+@app.route('/dynamic')
+def dynamic_page():
+    return render_template('dynamic/dynamic.html')
+
+# Other routes (dynamic, database, etc.) as needed...
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
