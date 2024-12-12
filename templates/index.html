@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KubEdge Hosting</title>
     <style>
-        /* Basic reset */
+        /* Reset some basic styles */
         * {
             margin: 0;
             padding: 0;
@@ -17,55 +17,116 @@
             background-color: #f4f4f4;
             color: #333;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 800px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #2d3436;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #dfe6e9;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #00b894;
+            color: white;
+        }
+
+        .sidebar a.active {
+            background-color: #00b894;
+            color: white;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            width: 100%;
         }
 
         h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
-            color: #4CAF50;
+            color: #2d3436;
         }
 
         .button-container {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             gap: 20px;
+            width: 300px;
         }
 
         .button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #4CAF50;
+            display: block;
+            padding: 20px;
+            text-align: center;
+            background-color: #00b894;
             color: white;
+            font-size: 1.5em;
             text-decoration: none;
             border-radius: 8px;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .button:hover {
-            background-color: #45a049;
+            background-color: #098f63;
+            transform: scale(1.05);
         }
+
+        .button:active {
+            background-color: #06a77d;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #aaa;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to KubEdge Web Hosting</h1>
-        <div class="button-container">
-            <a href="/host-static" class="button">Host Static Web</a>
-            <a href="/host-dynamic" class="button">Host Dynamic Web</a>
-            <a href="/create-database" class="button">Create Database</a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="text-align: center; color: white;">KubEdge</h2>
+        <a href="/" class="active">Dashboard</a>
+        <a href="/host-static">Host Static Web</a>
+        <a href="/host-dynamic">Host Dynamic Web</a>
+        <a href="/create-database">Create Database</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Welcome to KubEdge Web Hosting</h1>
+            <div class="button-container">
+                <a href="/host-static" class="button">Host Static Web</a>
+                <a href="/host-dynamic" class="button">Host Dynamic Web</a>
+                <a href="/create-database" class="button">Create Database</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 KubEdge Web Hosting</p>
         </div>
     </div>
 </body>
