@@ -73,6 +73,6 @@ services:
 @app.route('/deploy_dynamic')
 def deploy_dynamic():
     return render_template('deploy_dynamic.html')
-
 if __name__ == '__main__':
-    app.run(debug=True, port=9876)
+    # Binding to 0.0.0.0 makes the app accessible on any IP address of the machine
+    app.run(debug=True, host='0.0.0.0', port=9876)
