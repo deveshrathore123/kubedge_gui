@@ -6,41 +6,90 @@
     <title>Submission Successful</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
             color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
-            padding-top: 50px;
+            padding: 20px 0;
+            font-size: 24px;
         }
-        .details-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 28px;
+        }
+
+        .container {
+            width: 80%;
             margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
-        h1 {
-            color: #4CAF50;
+
+        .data {
+            margin-bottom: 20px;
         }
-        p {
-            font-size: 1.2em;
-            line-height: 1.8em;
+
+        .data label {
+            font-weight: bold;
+        }
+
+        .output {
+            background-color: #f4f4f4;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <h1>Thank you for submitting your details!</h1>
-    
-    <div class="details-container">
-        <p><strong>Process Name:</strong> {{ process_name }}</p>
-        <p><strong>GitHub URL:</strong> {{ github_url or "N/A" }}</p>
-        <p><strong>Local Directory:</strong> {{ local_directory }}</p>
-        <p><strong>Docker Image:</strong> {{ docker_image or "N/A" }}</p>
-        <p><strong>Container Port:</strong> {{ container_port }}</p>
-        <p><strong>Access Port:</strong> {{ access_port }}</p>
+<header>
+    Static Web App Deployment - Submission Details
+</header>
+
+<h2>Submission Successful!</h2>
+
+<div class="container">
+    <div class="data">
+        <label>Process Name:</label> {{ process_name }}<br>
+        <label>GitHub URL:</label> {{ github_url if github_url else "N/A" }}<br>
+        <label>Local Directory Path:</label> {{ local_directory }}<br>
+        <label>Docker Image Name:</label> {{ docker_image if docker_image else "N/A" }}<br>
+        <label>Container Port:</label> {{ container_port }}<br>
+        <label>Access Port:</label> {{ access_port }}<br>
     </div>
+
+    <div class="output">
+        <label>Script Output:</label><br>
+        {{ script_output }}
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Static Web App Hosting. All rights reserved.
+</footer>
 
 </body>
 </html>
