@@ -17,15 +17,17 @@
         /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url('{{ url_for("static", filename="images/background_image.jpg") }}');
+            background-size: cover;
+            background-position: center center;
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #fff;
         }
 
         /* Navbar */
         nav {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 0;
         }
 
@@ -53,6 +55,32 @@
 
         /* Container */
         .container {
+            margin-top: 50px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay on the background */
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .hero-section p {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .hero-section img {
+            max-width: 200px;
             margin-top: 30px;
         }
 
@@ -61,39 +89,39 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .button-container a {
             display: inline-block;
             padding: 20px 40px;
-            background-color: #007BFF;
+            background-color: #00BFFF;
             color: white;
             font-size: 1.3em;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .button-container a:hover {
-            background-color: #0056b3;
+            background-color: #008CBA;
             transform: scale(1.05);
         }
 
         /* Section Titles */
         .section-title {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-size: 2.5em;
             font-weight: bold;
-            color: #333;
+            color: #ffffff;
         }
 
         /* Footer Section */
         footer {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
             padding: 20px;
             margin-top: 50px;
@@ -108,29 +136,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Optional Logo and Hero Section */
-        .hero-section {
-            background-color: #007BFF;
-            padding: 80px 20px;
-            color: white;
-            text-align: center;
-        }
-
-        .hero-section h1 {
-            font-size: 3em;
-            font-weight: bold;
-        }
-
-        .hero-section p {
-            font-size: 1.5em;
-            margin-top: 20px;
-        }
-
-        .hero-section img {
-            max-width: 200px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 
@@ -142,16 +147,13 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#static">Static Hosting</a>
+                    <a class="nav-link" href="#static">Host Static Website</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#dynamic">Dynamic Hosting</a>
+                    <a class="nav-link" href="#dynamic">Host Dynamic Website</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#database">Database Creation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#tools">Tools</a>
+                    <a class="nav-link" href="#database">Create Database</a>
                 </li>
             </ul>
         </div>
@@ -160,7 +162,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <h1>KubEdge Web Hosting</h1>
-        <p>Unlock the power of cloud hosting with Kubernetes and Docker</p>
+        <p>Revolutionize your cloud experience with Kubernetes & Docker</p>
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="KubEdge Logo">
     </section>
 
@@ -191,15 +193,6 @@
             <p>Quickly create databases for your web applications</p>
             <div class="button-container">
                 <a href="/database">Create a New Database</a>
-            </div>
-        </section>
-
-        <!-- Tools Section -->
-        <section id="tools" class="text-center">
-            <h2 class="section-title">Integrated Tools</h2>
-            <p>Explore the tools integrated with KubEdge for CI/CD, Docker, and Kubernetes</p>
-            <div class="button-container">
-                <a href="/tools">Explore Tools</a>
             </div>
         </section>
     </div>
