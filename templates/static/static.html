@@ -27,6 +27,16 @@
             font-size: 1.2em;
             margin: 10px 0;
         }
+        .content-section {
+            margin-top: 40px;
+            text-align: left;
+            display: inline-block;
+            max-width: 800px;
+        }
+        .content-section p {
+            font-size: 1.1em;
+            color: #333;
+        }
         .button-container {
             margin-top: 30px;
         }
@@ -34,7 +44,7 @@
             display: inline-block;
             margin: 10px;
             padding: 12px 25px;
-            background-color: #000;  /* Changed to black background */
+            background-color: #000;  /* Black background */
             color: white;
             font-size: 1.2em;
             text-decoration: none;
@@ -58,6 +68,28 @@
         <li><strong>JavaScript</strong> (optional, for interactivity)</li>
     </ul>
 
+    <!-- Section for HTML -->
+    <div class="content-section">
+        <h2>HTML - HyperText Markup Language</h2>
+        <p>HTML is the foundational language for creating a website. It provides the structure and content of your web pages. Every website, whether static or dynamic, relies on HTML for displaying content such as text, images, and links.</p>
+        <p>HTML elements such as headings, paragraphs, links, and divs are used to define the structure of the page.</p>
+    </div>
+
+    <!-- Section for CSS -->
+    <div class="content-section">
+        <h2>CSS - Cascading Style Sheets</h2>
+        <p>CSS is used for styling the structure defined by HTML. It controls the layout, colors, fonts, and overall visual appearance of the website.</p>
+        <p>Using CSS, you can define styles for various elements such as text, images, and containers. It is an essential tool for making websites visually appealing and responsive across different devices.</p>
+    </div>
+
+    <!-- Section for JavaScript -->
+    <div class="content-section">
+        <h2>JavaScript</h2>
+        <p>JavaScript is an optional but often used programming language for adding interactivity to your static website. It allows you to implement dynamic features such as form validation, interactive maps, and animations.</p>
+        <p>While a basic static website doesn’t require JavaScript, it’s widely used to improve user experience and functionality.</p>
+    </div>
+
+    <!-- Button Container -->
     <div class="button-container">
         <button class="tab-button" onclick="window.location.href='/static/html'">HTML</button>
         <button class="tab-button" onclick="window.location.href='/static/html-css'">HTML and CSS</button>
