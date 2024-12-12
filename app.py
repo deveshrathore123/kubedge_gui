@@ -25,7 +25,7 @@ def submit_details():
     process_name = request.form['process_name']
     github_url = request.form.get('github_url')
     local_directory = request.form['local_directory']
-    docker_image = request.form.get('docker_image', '')
+    docker_image = request.form.get('docker_image', '')  # Default to empty if not provided
     container_port = request.form.get('container_port', '80')  # Default to 80 if not provided
     access_port = request.form.get('access_port', '8080')  # Default to 8080 if not provided
 
@@ -43,9 +43,13 @@ def submit_details():
         ]
 
         # Execute the shell script
-        result = subprocess.run(shell_command, capture_output=True, text=True)
+        result = subprocess.run(shell_command, capture_output=True, text=True, check=True)
 
-        # Redirect to the confirmation page with the result
+        # If the script executes successfully, capture the output
+        script_output = result.stdout
+        error_output = result.stderr
+
+        # Render the output to the 'submitted.html' page
         return render_template('submitted.html', 
                                process_name=process_name,
                                github_url=github_url,
@@ -53,11 +57,12 @@ def submit_details():
                                docker_image=docker_image,
                                container_port=container_port,
                                access_port=access_port,
-                               script_output=result.stdout,
-                               error_output=result.stderr)
-
+                               script_output=script_output,
+                               error_output=error_output)
+    
     except subprocess.CalledProcessError as e:
-        return f"An error occurred while executing the shell script: {e}"
+        # If there's an error in running the script, display it
+        return f"An error occurred while executing the shell script: {e.stderr}"
 
 # Route for dynamic website technologies
 @app.route('/dynamic')
