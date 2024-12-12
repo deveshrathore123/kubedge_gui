@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy Static Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Deploy Static Website</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p class="success">{{ success }}</p>
+    {% endif %}
+    <form method="POST">
+        <div class="input-group">
+            <label for="static_choice">Choose the type of static web app:</label>
+            <select name="static_choice" required>
+                <option value="1">HTML</option>
+                <option value="2">CSS</option>
+                <option value="3">Both HTML and CSS</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="process_name">Enter process name:</label>
+            <input type="text" name="process_name" required>
+        </div>
+        <div class="input-group">
+            <label for="html_path">Enter directory path for static files:</label>
+            <input type="text" name="html_path" required>
+        </div>
+        <div class="input-group">
+            <label for="image_name">Enter Docker image name (optional):</label>
+            <input type="text" name="image_name">
+        </div>
+        <div class="input-group">
+            <label for="container_port">Enter container port number:</label>
+            <input type="number" name="container_port" required>
+        </div>
+        <div class="input-group">
+            <label for="access_port">Enter access port number:</label>
+            <input type="number" name="access_port" required>
+        </div>
+        <button type="submit" class="button">Deploy Static Website</button>
+    </form>
+</div>
+
+</body>
+</html>
