@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Capture arguments passed from Flask app
-process_name=$1
-github_url=$2
-local_directory=$3
-docker_image=$4
-container_port=$5
-access_port=$6
-
 # Function to check if Docker and Docker Compose are installed
 check_docker() {
     if ! command -v docker &> /dev/null; then
@@ -23,7 +15,17 @@ check_docker() {
 
 # Function to deploy static website
 deploy_static() {
-    echo "Deploying static web app..."
+    # Get user inputs passed as arguments
+    process_name="$1"
+    github_url="$2"
+    local_directory="$3"
+    docker_image="$4"
+    container_port="$5"
+    access_port="$6"
+
+    # Set default values for ports if empty
+    container_port="${container_port:-80}"
+    access_port="${access_port:-8080}"
 
     # Validate process name follows Kubernetes naming conventions
     if [[ ! "$process_name" =~ ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$ ]]; then
@@ -80,14 +82,16 @@ EOL
     fi
 }
 
-# Main function to handle deployment
+# Main function to handle user input
 main() {
     # Check if Docker and Docker Compose are installed
     check_docker
 
+    echo "Deploying static web app..."
+
     # Proceed to deploy the static web app
-    deploy_static
+    deploy_static "$1" "$2" "$3" "$4" "$5" "$6"
 }
 
-# Execute the main function
-main
+# Execute the main function with arguments passed by Flask
+main "$1" "$2" "$3" "$4" "$5" "$6"
