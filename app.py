@@ -42,5 +42,19 @@ def dynamic_backend():
 def dynamic_additional_technologies():
     return render_template('dynamic/additional_technologies.html')
 
+# Route for database technologies
+@app.route('/database')
+def database_page():
+    return render_template('database/database.html')
+
+# Database sub-pages
+@app.route('/database/relational')
+def relational_databases():
+    return render_template('database/relational.html')
+
+@app.route('/database/nosql')
+def nosql_databases():
+    return render_template('database/nosql.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
