@@ -10,17 +10,14 @@ def index():
 # Route for static website technologies
 @app.route('/static')
 def static_page():
-    return render_template('static.html')
+    return render_template('static/static.html')
 
 # Route for dynamic website technologies
 @app.route('/dynamic')
 def dynamic_page():
-    return render_template('dynamic.html')
+    return render_template('dynamic/dynamic.html')
 
 # Route for database technologies
 @app.route('/database')
 def database_page():
-    return render_template('database.html')
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=9876)
+    return render_template('database/database.html')
