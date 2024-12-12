@@ -7,12 +7,15 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url('./images/background_image.jpg');  /* Set background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
             text-align: center;
             padding-top: 30px;
         }
         h1 {
-            color: #4CAF50;
+            color: black;  /* Change HTML Page color to black */
         }
         p {
             font-size: 1.2em;
@@ -26,7 +29,7 @@
             text-align: left;
             display: inline-block;
             max-width: 500px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);  /* Light background for form */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -38,9 +41,11 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
+            color: black;  /* Set text color to black */
         }
         .form-container label {
             font-weight: bold;
+            color: black;  /* Change label text color to black */
         }
         .form-container button {
             padding: 12px 25px;
@@ -62,7 +67,8 @@
 
     <!-- KubEdge Logo -->
     <div class="logo">
-        <img src="static/images/logo.png" alt="KubEdge Logo" width="200px">  <!-- Ensure the correct path for logo -->
+        <!-- Use the path './images/logo.png' for the logo image -->
+        <img src="./images/logo.png" alt="KubEdge Logo" width="200px">
     </div>
 
     <h1>HTML Page</h1>
